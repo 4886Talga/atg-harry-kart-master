@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test:unit": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint . --ignore-path .gitignore && prettier --ignore-path .gitignore --check .",
     "lint:fix": "eslint . --ignore-path .gitignore --fix && prettier --ignore-path .gitignore --write .",

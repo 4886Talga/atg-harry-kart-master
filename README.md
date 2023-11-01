@@ -1,46 +1,82 @@
-# Getting Started with Create React App
+# ATG frontend case
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+ATG frontend case is a pure React single page. More details regarding required features are available in the [Features](#Features) section below.
 
-In the project directory, you can run:
+### 🏠 [Homepage](https://github.com/4886Talga/atg-harry-kart-master)
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- TypeScript
+- React
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+User should be able to:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Select a bet type (`V75`, `V86`, `GS75`) and the most recent result for that bet type should be displayed
+  - Following should be displayed: bet type, track name(s), start time
+- See information about the selected bet type’s races
+  - Following should be displayed: race number, race name, race start time
+- See information about the starting horses in the race
+  - Following should be displayed: start number, horse name, driver first and last name
+- See detailed information about each horse by clicking a horse’s row
+  - Following should be presented: trainer first and last name, name of the horse father
 
-### `npm run build`
+## Racing info API
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Products
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**GET** https://www.atg.se/services/racinginfo/v1/api/products/{betType}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Parameters:**
+| Name | Examples |
+| ------------- | -------------------- |
+| betType | `V75`, `V86`, `GS75` |
 
-### `npm run eject`
+### Games
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**GET** https://www.atg.se/services/racinginfo/v1/api/games/{id}
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Parameters:**
+| Name | Examples |
+| ------------- | ------------------- |
+| id | `V75_2021-02-13_6_5`|
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## For Development
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Install
 
-## Learn More
+```sh
+npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Usage
+
+Start the page on [localhost:3000/](http://localhost:3000/).
+
+```sh
+npm run start
+```
+
+### Testing
+
+This project holds end-to-end-tests that aim to test through the public parts of `ATG frontend case` and unit tests.
+
+| Command               | description                                  |
+| --------------------- | -------------------------------------------- |
+| `npm run test:unit`   | run all unit tests                           |
+| `npm run cypress:dev` | the Cypress Launchpad                        |
+| `npm run cypress:run` | run all e2e tests                            |
+| `npm run test:e2e`    | starts the application and run all e2e tests |
+
+### Linting
+
+Here we are getting help from ESLint and Prittier to clean(fix) our code.
+
+| Command            | description                               |
+| ------------------ | ----------------------------------------- |
+| `npm run lint`     | use eslint and prittier to check the code |
+| `npm run lint:fix` | cleaning up                               |
