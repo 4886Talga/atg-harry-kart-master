@@ -10,6 +10,8 @@ ATG frontend case is a pure React single page. More details regarding required f
 
 - TypeScript
 - React
+- Jest
+- Cypress
 
 ## Features
 
