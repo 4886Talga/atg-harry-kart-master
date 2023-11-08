@@ -5,7 +5,7 @@ import { Option } from "../../interfaces";
 interface SelectProps {
   placeholder: string;
   options: Option[];
-  selected: Option | null;
+  selected: Option;
   onChange: (selection: Option) => void;
 }
 
@@ -19,14 +19,16 @@ export const Select: React.FC<SelectProps> = ({
   return (
     <div className={styles["select-component"]}>
       <div
+        data-testid="bet-type"
+        aria-label="Select bet type"
         onClick={() => setShowOptions(!showOptions)}
-        className={styles["select"]}
+        className={styles.select}
       >
-        <span>{selected ? selected.label : placeholder}</span>
+        <span>{selected.label !== "" ? selected.label : placeholder}</span>
         <span>V</span>
       </div>
       {showOptions && (
-        <div className={styles["options"]}>
+        <div data-testid="options" className={styles.options}>
           {options.map((option) => (
             <div
               onClick={() => {
@@ -34,7 +36,7 @@ export const Select: React.FC<SelectProps> = ({
                 setShowOptions(false);
               }}
               key={option.value}
-              className={styles["option"]}
+              className={styles.option}
             >
               <span>{option.label}</span>
             </div>

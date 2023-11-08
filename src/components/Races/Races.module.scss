@@ -1,0 +1,25 @@
+.races-holder {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.races {
+    width:500px;
+    .race {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        span {
+            font-size: 14px;
+        }
+    }
+}

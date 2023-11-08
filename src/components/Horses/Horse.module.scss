@@ -1,0 +1,27 @@
+.horse-holder {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.horse {
+    width:350px;
+    .horse {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        cursor:pointer;
+        span {
+            font-size: 12px;
+            color: gray;
+        }
+    }
+}
