@@ -4,13 +4,17 @@ import {BetType, Option} from '../interfaces'
 interface BetTypeState {
     loading: boolean
     data: BetType
+    error: string
 }
 
 const initialState: BetTypeState = {
     loading: false,
+    error: '',
     data: {betType: '',
         upcoming: [],
-        results:[]}
+        results:[],
+    }
+        
 }
 
 export const fetchData =  createAsyncThunk('content/fetchBetType', async (selectedOption:Option) => {
@@ -36,8 +40,9 @@ export const betTypeSlice = createSlice({
             state.data = action.payload;
             state.loading = false;
         });
-        builder.addCase(fetchData.rejected, (state) => {
+        builder.addCase(fetchData.rejected, (state, action) => {
             state.loading = false;
+            state.error = action.error.message !== undefined ? action.error.message : ''
         });
     }
 });
